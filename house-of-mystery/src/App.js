@@ -4,6 +4,7 @@ import RulesScreen from "./components/RulesScreen/RulesScreen";
 import GameScreen from "./components/GameScreen/GameScreen";
 import FormScreen from "./components/FormScreen/FormScreen";
 import EndScreen from "./components/EndScreen/EndScreen";
+import { potionColors } from "./utils/potionColors"; // adjust path if needed
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState("title");
@@ -16,27 +17,43 @@ function App() {
     setCurrentScreen(screen);
   };
 
-  // Handle potion selection
-  const handlePotionSelect = (potion) => {
+  const parseColor = (color) => {
+    const [r, g, b] = color.match(/\d+/g).map(Number);
+    return [r, g, b];
+  }
+
+  const mixColors = (c1, c2) => {
+    const [r1, g1, b1] = parseColor(c1);
+    const [r2, g2, b2] = parseColor(c2);
+    return `rgb(${Math.round((r1 + r2) / 2)}, ${Math.round(
+      (g1 + g2) / 2
+    )}, ${Math.round((b1 + b2) / 2)})`;
+  }
+
+ const handlePotionSelect = (potion) => {
     let newSelections = [...selectedPotions];
 
     if (newSelections.length < 2) {
-      newSelections.push(potion);
+      if (!newSelections.find(p => p.flavor === potion.flavor)) {
+        newSelections.push(potion);
+      }
     } else {
       newSelections = [potion]; // restart selection if already have 2
     }
 
     setSelectedPotions(newSelections);
 
-    // Update cauldron color (placeholder logic — replace with blending rules)
     if (newSelections.length === 1) {
-      setCauldronColor(potion.color);
+      setCauldronColor(potionColors[newSelections[0].flavor]);
     } else if (newSelections.length === 2) {
       // Example: blend colors, or use lookup table
-      setCauldronColor(`${newSelections[0].color} + ${newSelections[1].color}`);
+      const color1 = potionColors[newSelections[0].flavor];
+      const color2 = potionColors[newSelections[1].flavor];
+      setCauldronColor(mixColors(color1, color2));
     }
   };
 
+  
   // Handle form submission
   const handleFormSubmit = (data) => {
     setFormData(data);

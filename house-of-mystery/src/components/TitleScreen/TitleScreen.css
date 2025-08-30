@@ -1,30 +1,46 @@
-.title-screen {
+.title-container {
   width: 100vw;
   height: 100vh;
   background-image: url("../../assets/Desktop/Title Screen.png");
   background-size: cover;
   background-position: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.title-button img {
-  width: 12rem;   /* ~192px */
-  transition: transform 0.3s ease;
-  cursor: pointer;
+.content-container {
+  display: flex;
+  flex-direction: column;
+  transform: translateX(8rem);
 }
 
-.title-button img:hover {
-  transform: scale(1.05);
+.mystery-logo {
+  width: 30rem;
+}
+
+.title-button {
+  align-self: center;
+  cursor: pointer;               /* Makes the cursor a pointer */
+  transition: transform 0.2s ease; /* Smooth transition for scaling */
+  width: 15rem;
+}
+
+.title-button:hover {
+  transform: scale(1.05);        /* Slightly enlarge on hover */
 }
 
 @media (max-width: 968px) {
-  .title-screen {
+  .title-container {
     background-image: url("../../assets/Mobile/mobile title screen.png");
   }
 
-  .title-button img {
-    width: 10rem;  /* slightly smaller button on mobile */
+  .content-container {
+    transform: translateX(0rem);
+  }
+
+  .title-button {
+    /* width: 4rem; */
   }
 }
