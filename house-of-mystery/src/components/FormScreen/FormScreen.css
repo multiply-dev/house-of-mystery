@@ -1,0 +1,31 @@
+.form-screen {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/Desktop/Form Screen.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button img {
+  width: 12rem; /* ~192px */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.submit-button img:hover {
+  transform: scale(1.05);
+}
+
+/* ✅ Mobile breakpoint */
+@media (max-width: 968px) {
+  .form-screen {
+    background-image: url("../../assets/Mobile/mobile Form.png");
+  }
+
+  .submit-button img {
+    width: 10rem;
+  }
+}

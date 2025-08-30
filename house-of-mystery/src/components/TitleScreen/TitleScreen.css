@@ -1,4 +1,6 @@
 .title-screen {
+  width: 100vw;
+  height: 100vh;
   background-image: url("../../assets/Desktop/Title Screen.png");
   background-size: cover;
   background-position: center;
