@@ -1,0 +1,28 @@
+.title-screen {
+  background-image: url("../../assets/Desktop/Title Screen.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-button img {
+  width: 12rem;   /* ~192px */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.title-button img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 968px) {
+  .title-screen {
+    background-image: url("../../assets/Mobile/mobile title screen.png");
+  }
+
+  .title-button img {
+    width: 10rem;  /* slightly smaller button on mobile */
+  }
+}

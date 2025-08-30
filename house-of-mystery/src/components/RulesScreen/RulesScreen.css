@@ -1,0 +1,31 @@
+.rules-screen {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/Desktop/Game Rules.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rules-button img {
+  width: 12rem; /* ~192px */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.rules-button img:hover {
+  transform: scale(1.05);
+}
+
+/* ✅ Mobile breakpoint */
+@media (max-width: 968px) {
+  .rules-screen {
+    background-image: url("../../assets/Mobile/mobile Rules.png");
+  }
+
+  .rules-button img {
+    width: 10rem; /* slightly smaller button on mobile */
+  }
+}

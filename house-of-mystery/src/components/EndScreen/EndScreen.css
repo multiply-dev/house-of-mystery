@@ -1,0 +1,22 @@
+.end-screen {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/Desktop/End Screen.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 968px) {
+  .end-screen {
+    background-image: url("../../assets/Mobile/mobile submission.png");
+  }
+
+  .replay-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
