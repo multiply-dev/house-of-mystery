@@ -7,25 +7,100 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: white;
 }
 
-.submit-button img {
+.submit-button {
   width: 12rem; /* ~192px */
   cursor: pointer;
   transition: transform 0.3s ease;
+  background-color: transparent; /* remove button bg */
+  border: none;                  /* remove border */
+  padding: 0;                    /* so image fits edge-to-edge */
+  cursor: pointer;
+}
+.submit-button img {
+  width: 8rem; 
 }
 
-.submit-button img:hover {
+.submit-button:hover {
   transform: scale(1.05);
 }
 
-/* ✅ Mobile breakpoint */
 @media (max-width: 968px) {
   .form-screen {
     background-image: url("../../assets/base/mobile game form.png");
   }
 
-  .submit-button img {
+  .submit-button {
     width: 10rem;
   }
+}
+
+.desc-text {
+  font-weight:700;
+  min-width: 14rem;
+  max-width: 27rem;
+}
+
+.disclaimer-text {
+  font-size: small;
+  padding: 0 2.5rem;
+  text-align: center;
+}
+
+.form-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-top: 2px solid #fcdc04; 
+  color: #fff;
+  font-size: medium;
+  font-weight: 600;
+  padding: 0.65rem 5rem 0.65rem 1rem;
+}
+input.selected {
+  border: none;
+}
+/* Styles for autofilled inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #FFF !important;
+}
+
+::placeholder {
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: medium;
+  opacity: 1;
+}
+
+.questions-container {
+  border: 2px solid #fcdc04;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-text {
+  color: #FFF;
+  font-size: medium;
+  font-weight: 600;
+  padding: 0.65rem 1.5rem 0.65rem 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  
+}
+
+.last-step {
+  width: 12rem;
 }

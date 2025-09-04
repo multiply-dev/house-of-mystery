@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TitleScreen from "./components/TitleScreen/TitleScreen";
 import RulesScreen from "./components/RulesScreen/RulesScreen";
 import GameScreen from "./components/GameScreen/GameScreen";
@@ -10,7 +10,6 @@ function App() {
   const [currentScreen, setCurrentScreen] = useState("title");
   const [selectedPotions, setSelectedPotions] = useState([]);
   const [cauldronColor, setCauldronColor] = useState(null);
-  const [formData, setFormData] = useState({});
 
   // Switch screen
   const goToScreen = (screen) => {
@@ -55,17 +54,8 @@ function App() {
 
   
   // Handle form submission
-  const handleFormSubmit = (data) => {
-    setFormData(data);
+  const handleFormSubmit = () => {
     goToScreen("end");
-  };
-
-  // Reset game to start
-  const resetGame = () => {
-    setSelectedPotions([]);
-    setCauldronColor(null);
-    setFormData({});
-    setCurrentScreen("title");
   };
 
   return (
@@ -88,11 +78,11 @@ function App() {
       )}
 
       {currentScreen === "form" && (
-        <FormScreen onSubmit={handleFormSubmit} />
+        <FormScreen onSubmit={handleFormSubmit} selectedPotions={selectedPotions} />
       )}
 
       {currentScreen === "end" && (
-        <EndScreen onReplay={resetGame} formData={formData} />
+        <EndScreen />
       )}
     </div>
   );

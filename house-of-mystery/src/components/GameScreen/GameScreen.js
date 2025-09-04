@@ -8,6 +8,7 @@ import chewbieBubble from "../../assets/base/chewbie with hollow bubbled cauldro
 import mixButton from "../../assets/buttons/mix_mystery_button.png";
 import leftArrow from "../../assets/buttons/left.png";
 import rightArrow from "../../assets/buttons/right.png";
+import flavorImages from "../../utils/flavorImages.js";
 
 const potions = [
     "Apple", "Banana", "Blue Raspberry", "Blueberry", "Candy Apple",
@@ -42,18 +43,20 @@ const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) =
       {selectedPotions.length === 1 && <img src={chewbieHollow} alt="Chewbie Cauldron" style={{ backgroundColor: cauldronColor || "transparent" }} className="chewbie-cauldron" />}
       {selectedPotions.length === 2 && <img src={chewbieBubble} alt="Chewbie Bubble" style={{ backgroundColor: cauldronColor || "transparent" }} className="chewbie-cauldron" />}
 
-      {/* Cauldron */}
-      <div className="cauldron">
-        <div
-          className="cauldron-display"
-          style={{ backgroundColor: cauldronColor || "transparent" }}
-        >
-          {selectedPotions.length === 1 && <p>{selectedPotions[0].flavor}</p>}
-          {selectedPotions.length === 2 && (
-            <p>{selectedPotions[0].flavor} + {selectedPotions[1].flavor}</p>
-          )}
-        </div>
-      </div>
+      {selectedPotions[0] && (
+        <img 
+          src={flavorImages[selectedPotions[0].flavor]} 
+          alt={selectedPotions[0].flavor}
+          className="flavor-img"
+        />
+      )}
+      {selectedPotions[1] && (
+        <img 
+          src={flavorImages[selectedPotions[1].flavor]} 
+          alt={selectedPotions[1].flavor}
+          className="flavor-img"
+        />
+      )}
 
       {/* DESKTOP LAYOUT: 5 shelves of 4 potions */}
       {!isMobile && (

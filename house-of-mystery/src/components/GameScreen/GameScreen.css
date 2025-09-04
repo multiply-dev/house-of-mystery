@@ -22,24 +22,13 @@
     justify-self: end;
 }
 
-.cauldron {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-.cauldron-display {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: grey; /* placeholder for actual color blending */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: white;
+.flavor-img {
+    position: absolute;
+    bottom: 53%;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
 }
 
 .chewbie-cauldron {

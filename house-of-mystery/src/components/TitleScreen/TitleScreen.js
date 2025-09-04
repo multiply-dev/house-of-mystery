@@ -1,7 +1,7 @@
 import "./TitleScreen.css";
 import mysteryLogo from "../../assets/mystery game logo.png";
 import titleButton from "../../assets/buttons/title_button.png";
-import titleChar from "../../assets/base/title screen character.png";
+import titleChar from "../../assets/base/title page chewbie.png";
 
 const TitleScreen = ({ onNext }) => {
   return (
