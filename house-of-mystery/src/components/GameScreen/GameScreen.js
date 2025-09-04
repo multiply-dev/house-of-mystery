@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./GameScreen.css";
-import gameBase from "../../assets/Desktop/Game Base.png";
+import gameBase from "../../assets/base/desktop background.png";
+import shelves from "../../assets/base/potion shelves-desktop.png";
+import chewbieDefault from "../../assets/base/chewbie with cauldron-default.png";
+import chewbieHollow from "../../assets/base/chewbie with hollow cauldron.png";
+import chewbieBubble from "../../assets/base/chewbie with hollow bubbled cauldron.png";
 import mixButton from "../../assets/buttons/mix_mystery_button.png";
 import leftArrow from "../../assets/buttons/left.png";
 import rightArrow from "../../assets/buttons/right.png";
@@ -33,6 +37,10 @@ const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) =
     <div className="game-screen">
       {/* Background */}
       <img src={gameBase} alt="Game Background" className="game-bg" />
+      <img src={shelves} alt="Shelves" className="shelves-img" />
+      {selectedPotions.length === 0 && <img src={chewbieDefault} alt="Chewbie Default" className="chewbie-cauldron" />}
+      {selectedPotions.length === 1 && <img src={chewbieHollow} alt="Chewbie Cauldron" style={{ backgroundColor: cauldronColor || "transparent" }} className="chewbie-cauldron" />}
+      {selectedPotions.length === 2 && <img src={chewbieBubble} alt="Chewbie Bubble" style={{ backgroundColor: cauldronColor || "transparent" }} className="chewbie-cauldron" />}
 
       {/* Cauldron */}
       <div className="cauldron">

@@ -1,7 +1,7 @@
 .end-screen {
   width: 100vw;
   height: 100vh;
-  background-image: url("../../assets/Desktop/End Screen.png");
+  background-image: url("../../assets/base/submission background-desktop.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -12,7 +12,7 @@
 
 @media (max-width: 968px) {
   .end-screen {
-    background-image: url("../../assets/Mobile/mobile submission.png");
+    background-image: url("../../assets/base/submit screen-mobile-background.png");
   }
 
   .replay-button {

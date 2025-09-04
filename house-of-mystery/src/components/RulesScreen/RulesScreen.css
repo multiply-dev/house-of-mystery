@@ -1,13 +1,12 @@
 .rules-screen {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, #9434cc, #ac44c8, #9434cc);
-  /* background-image: url("../../assets/Desktop/Game Rules.png");
+  background-image: url("../../assets/base/desktop-rules background.png");
   background-size: cover;
-  background-position: center; */
+  background-position: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 2rem 0;
 }
 
 .rules-container {
@@ -17,7 +16,22 @@
   gap: 1rem;
   text-align: center;
   padding: 0 7rem;
+  line-height: 1.5;
 }
+
+.rules-container h1 {
+  font-size: clamp(2rem, 3.1vw, 3rem);
+}
+
+.rules-container h2 {
+  font-size: clamp(1.5rem, 2.2vw, 2.25rem);
+}
+
+.rules-container h3 {
+  font-size: clamp(1.2rem, 1.3vw, 1.75rem);
+}
+
+
 
 .rules-text {
   text-align: left;
@@ -25,9 +39,9 @@
 
 .rules-button {
   align-self: center;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  width: 15rem;
+  cursor: pointer;      
+  transition: transform 0.2s ease;
+  width: 12rem;
 }
 
 .yellow {
@@ -39,10 +53,16 @@
 }
 
 @media (max-width: 968px) {
-  .rules-screen {
-    background-image: url("../../assets/Mobile/mobile Rules.png");
+  .rules-container {
+    padding: 0 2rem;
   }
 
-  .rules-button {
+  .rules-screen {
+    background-image: url("../../assets/base/mobile-rules background.png");
   }
+
+  .rules-button{
+    width: 28%;
+  }
+
 }

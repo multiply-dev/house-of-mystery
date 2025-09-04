@@ -1,7 +1,7 @@
 .form-screen {
   width: 100vw;
   height: 100vh;
-  background-image: url("../../assets/Desktop/Form Screen.png");
+  background-image: url("../../assets/base/game background desktop-form drop.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -22,7 +22,7 @@
 /* ✅ Mobile breakpoint */
 @media (max-width: 968px) {
   .form-screen {
-    background-image: url("../../assets/Mobile/mobile Form.png");
+    background-image: url("../../assets/base/mobile game form.png");
   }
 
   .submit-button img {

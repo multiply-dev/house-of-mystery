@@ -1,30 +1,44 @@
 .title-container {
   width: 100vw;
   height: 100vh;
-  background-image: url("../../assets/Desktop/Title Screen.png");
+  background-image: url("../../assets/base/desktop background.png");
   background-size: cover;
   background-position: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
-  transform: translateX(8rem);
+  align-items: center;
+  justify-content: center;
 }
 
+.mystery-char {
+  max-width: 35%; /* keep character smaller than content */
+  height: auto;
+  object-fit: contain;
+}
+
+/* .content-container img {
+  max-width: 800px;
+  height: auto;
+  margin: 1rem 0;
+} */
+
 .mystery-logo {
-  width: 30rem;
+  max-width: 32vw;
 }
 
 .title-button {
   align-self: center;
   cursor: pointer;               /* Makes the cursor a pointer */
   transition: transform 0.2s ease; /* Smooth transition for scaling */
-  width: 15rem;
+  width: 15vw;
 }
 
 .title-button:hover {
@@ -33,14 +47,23 @@
 
 @media (max-width: 968px) {
   .title-container {
-    background-image: url("../../assets/Mobile/mobile title screen.png");
+    background-image: url("../../assets/base/mobile background.png");
   }
 
   .content-container {
+    align-items: center;
+    gap: 3rem;
     transform: translateX(0rem);
   }
 
+  .mystery-logo {
+    max-width: 70%;   /* don’t exceed 80% of viewport width */
+  }
   .title-button {
-    /* width: 4rem; */
+    width: 28%;
+  }
+
+  .mystery-char {
+    display: none;
   }
 }
