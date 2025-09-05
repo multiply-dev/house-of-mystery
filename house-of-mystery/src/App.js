@@ -18,22 +18,29 @@ function App() {
   };
 
 
- const handlePotionSelect = (potion) => {
+  const handlePotionSelect = (potion) => {
     const audio = new Audio(potionSound);
     audio.play();
 
     let newSelections = [...selectedPotions];
 
-    if (newSelections.length < 2) {
-      if (!newSelections.find(p => p.flavor === potion.flavor)) {
-        newSelections.push(potion);
-      }
+    // check if potion is already selected
+    const alreadySelected = newSelections.find(p => p.flavor === potion.flavor);
+
+    if (alreadySelected) {
+      // deselect by filtering it out
+      newSelections = newSelections.filter(p => p.flavor !== potion.flavor);
     } else {
-      newSelections = [potion]; // restart selection if already have 2
+      if (newSelections.length < 2) {
+        newSelections.push(potion);
+      } else {
+        newSelections = [potion]; // restart selection if already have 2
+      }
     }
 
     setSelectedPotions(newSelections);
   };
+
 
   // Handle form submission
   const handleFormSubmit = () => {

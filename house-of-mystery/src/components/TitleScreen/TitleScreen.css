@@ -30,6 +30,10 @@
   margin-bottom: 50px;
 }
 
+.mystery-logo-chewbie {
+  display: none;
+}
+
 .title-button {
   align-self: center;
   cursor: pointer;               /* Makes the cursor a pointer */
@@ -41,7 +45,7 @@
   transform: scale(1.05);        /* Slightly enlarge on hover */
 }
 
-@media (max-width: 968px) {
+@media (max-width: 668px) {
   .title-container {
     background-image: url("../../assets/base/mobile background.png");
   }
@@ -52,11 +56,18 @@
     transform: translateX(0rem);
   }
 
-  .mystery-logo {
-    max-width: 70%;   /* don’t exceed 80% of viewport width */
+  .mystery-logo-chewbie {
+    display: block;
+    max-width: 80%;   /* don’t exceed 80% of viewport width */
     margin-left: 0;
     margin-bottom: 0;
   }
+
+  .mystery-logo {
+    display: none;
+  }
+
+
   .title-button {
     width: 28%;
   }

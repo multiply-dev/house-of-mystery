@@ -34,6 +34,10 @@
   align-items: end;
 }
 
+.carousel-row {
+  display: none;
+}
+
 .shelf {
   display: flex;
   justify-content: center;
@@ -138,12 +142,12 @@
 
 .mix-button {
   position: absolute;
-top: 71%;
-    left: 63%;
-    transform: translateX(-50%);
-    z-index: 5;
-    cursor: pointer;
-    width: 27%;
+  top: 71%;
+  left: 63%;
+  transform: translateX(-50%);
+  z-index: 5;
+  cursor: pointer;
+  width: 27%;
   transition: transform 0.3s ease;
 }
 
@@ -152,7 +156,7 @@ top: 71%;
   .chewbie-wrapper {
     align-self: anchor-center;
     left: 50%;
-    width: 35vw;
+    width: 50vw;
     top: 35%;
   }
 
@@ -174,7 +178,7 @@ top: 71%;
   .arrow {
     width: 10vw;
     position: absolute;
-    top: 50%;
+    top: 140%;
     transform: translateY(-50%);
     z-index: 10;
     cursor: pointer;
@@ -193,6 +197,12 @@ top: 71%;
     display: flex;
     justify-content: space-between;
     width: 67vw;
+    /* animation: fadeGroup 0.4s ease; */
+  }
+
+  @keyframes fadeGroup {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 
   .potion-icon {
@@ -213,7 +223,7 @@ top: 71%;
   @keyframes fadeInRight {
     from {
       opacity: 1;
-      transform: translateX(30px);
+      transform: translateX(60px);
     }
     to {
       opacity: 1;
@@ -224,7 +234,7 @@ top: 71%;
   @keyframes fadeInLeft {
     from {
       opacity: 1;
-      transform: translateX(-30px);
+      transform: translateX(-60px);
     }
     to {
       opacity: 1;
@@ -233,11 +243,11 @@ top: 71%;
   }
 
   .arrow.left {
-    left: 8px;
+    left: 61px;
   }
 
   .arrow.right {
-    right: 8px;
+    right: 41px;
   }
 
   .arrow.disabled {

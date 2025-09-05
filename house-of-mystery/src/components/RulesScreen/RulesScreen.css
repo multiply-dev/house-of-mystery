@@ -29,12 +29,13 @@
 
 .rules-container h3 {
   font-size: clamp(1.2rem, 2vw, 1.75rem);
+  padding: 0rem 1rem;
 }
 
 
 
 .rules-text {
-  text-align: left;
+  /* text-align: left; */
 }
 
 .rules-button {
