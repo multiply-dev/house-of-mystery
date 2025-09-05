@@ -16,37 +16,18 @@
 .shelves-img {
     position: absolute;
     bottom: 3%;
+    right: 7%;
     width: 30rem;
     display: flex;
     flex-direction: column;
     justify-self: end;
 }
 
-.flavor-img {
-    position: absolute;
-    bottom: 53%;
-    width: 10rem;
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-}
-
-.chewbie-cauldron {
-  position: absolute;
-  bottom: 7%;
-  right: 50%;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
-  align-items: end;
-}
-
 .shelves {
   position: absolute;
   bottom: 7%;
-  right: 3%;
-  width: 100%;
+  right: 10%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -87,19 +68,6 @@
   100% { transform: rotate(-20deg) translateX(0); }
 }
 
-.mix-button {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  cursor: pointer;
-}
-
-.mix-button {
-  width: 15rem;
-  transition: transform 0.3s ease;
-}
 
 .mix-button img:hover {
   transform: scale(1.05);
@@ -112,25 +80,40 @@
 
 /* Mobile layout adjustments */
 @media (max-width: 968px) {
-  .shelves {
-    flex-direction: row; /* horizontal row instead of stacked */
-    justify-content: center;
-    gap: 1rem;
-    overflow: hidden; /* hide offscreen potions */
+  .shelves-img {
     position: absolute;
-    bottom: 15%;
-    width: 100%;
+    width: 23rem;
+    display: flex;
+    flex-direction: column;
+    top: 0%;
+    justify-self: center;
+  }
+
+  .shelves {
+    display: flex;
+    flex-direction: row; /* horizontal row */
+    justify-content: center; /* center carousel horizontally */
+    align-items: center; /* vertical center within container */
+    gap: 1rem;
+    overflow: hidden; /* hide offscreen elements */
+    position: absolute;
+    top: 0; /* move to top of screen */
+    left: 50%; /* center horizontally */
+    transform: translateX(-50%);
+    width: 35%; /* take 40% of screen width */
+    padding: 1rem 0; /* optional: add some top/bottom padding */
+    z-index: 100; /* ensure it's above other content */
   }
 
   .shelf {
     display: flex;
     gap: 1rem;
-    flex: 0 0 auto; /* ensure each potion takes natural width */
+    flex: 0 0 auto;
   }
 
   .carousel-row {
     display: flex;
-    transition: transform 0.4s ease; 
+    transition: transform 0.4s ease;
   }
 
   .arrow {
@@ -156,6 +139,73 @@
     cursor: not-allowed;
   }
   .potion-icon {
-    width: 70px; /* slightly smaller for mobile */
+    width: 130px; /* slightly smaller for mobile */
   }
+}
+
+/* === Chewbie and Related Elements === */
+.chewbie-wrapper {
+  position: absolute;
+  top: 7%;       /* adjust to position on background */
+  left: 30%;      /* horizontal center */
+  transform: translateX(-50%);
+  width: 32%;     /* controls overall chewbie size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Base cauldron image */
+.chewbie-cauldron {
+  width: 100%;
+  display: block;
+}
+
+/* Flavor inside the cauldron */
+.cauldron-img {
+  position: absolute;
+  top: 43.8%;
+  left: 62%;
+  transform: translateX(-50%);
+  width: 48%;
+  z-index: 3;
+}
+
+/* Bubbles floating above cauldron */
+.bubbles-img {
+  position: absolute;
+  top: 44%;
+  left: 61.8%;
+  transform: translateX(-50%);
+  width: 47.8%;
+  z-index: 4;
+}
+
+/* Flavor texts anchored to cauldron */
+.flavor-img-1 {
+  position: absolute;
+  top: 8%;
+    left: 3%;
+    width: 40%;
+  z-index: 4;
+}
+
+.flavor-img-2 {
+  position: absolute;
+  top: 8%;
+    right: 5%;
+    width: 40%;
+  z-index: 4;
+}
+
+.mix-button {
+  position: absolute;
+top: 71%;
+    left: 63%;
+    transform: translateX(-50%);
+    z-index: 5;
+    cursor: pointer;
+    width: 27%;
+  transition: transform 0.3s ease;
 }

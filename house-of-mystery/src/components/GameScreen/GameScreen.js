@@ -2,13 +2,14 @@ import { useState } from "react";
 import "./GameScreen.css";
 import gameBase from "../../assets/base/desktop background.png";
 import shelves from "../../assets/base/potion shelves-desktop.png";
-import chewbieDefault from "../../assets/base/chewbie with cauldron-default.png";
-import chewbieHollow from "../../assets/base/chewbie with hollow cauldron.png";
-import chewbieBubble from "../../assets/base/chewbie with hollow bubbled cauldron.png";
+import shelf from "../../assets/base/mobile potion shelves.png";
+import chewbieHollow from "../../assets/base/chewbie hollow.png";
 import mixButton from "../../assets/buttons/mix_mystery_button.png";
 import leftArrow from "../../assets/buttons/left.png";
 import rightArrow from "../../assets/buttons/right.png";
 import flavorImages from "../../utils/flavorImages.js";
+import bubbleImages from "../../utils/bubbleImages.js";
+import cauldronImages from "../../utils/cauldronImages.js";
 
 const potions = [
     "Apple", "Banana", "Blue Raspberry", "Blueberry", "Candy Apple",
@@ -20,7 +21,7 @@ const potions = [
 const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) => {
   const [startIndex, setStartIndex] = useState(0);
   const isMobile = window.innerWidth < 968;
-  const visibleCount = 14; // mobile only
+  const visibleCount = 3; // mobile only
 
   const handleLeft = () => {
     setStartIndex(prev => Math.max(prev - 1, 0));
@@ -32,31 +33,75 @@ const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) =
 
   const canGoLeft = startIndex > 0;
   const canGoRight = startIndex < potions.length - visibleCount;
-  console.log("canGoLeft", startIndex, potions.length - visibleCount)
 
   return (
     <div className="game-screen">
       {/* Background */}
       <img src={gameBase} alt="Game Background" className="game-bg" />
-      <img src={shelves} alt="Shelves" className="shelves-img" />
-      {selectedPotions.length === 0 && <img src={chewbieDefault} alt="Chewbie Default" className="chewbie-cauldron" />}
-      {selectedPotions.length === 1 && <img src={chewbieHollow} alt="Chewbie Cauldron" style={{ backgroundColor: cauldronColor || "transparent" }} className="chewbie-cauldron" />}
-      {selectedPotions.length === 2 && <img src={chewbieBubble} alt="Chewbie Bubble" style={{ backgroundColor: cauldronColor || "transparent" }} className="chewbie-cauldron" />}
+      <img src={isMobile ? shelf : shelves} alt="Shelves" className="shelves-img" />
+      
+      
+      {selectedPotions.length === 0 && (
+        <div className="chewbie-wrapper">
+          <img src={chewbieHollow} alt="Chewbie Default" className="chewbie-cauldron" />
+        </div>
+      )}
+      
+      
+      {selectedPotions.length > 0 && (
+        <div className="chewbie-wrapper">
 
-      {selectedPotions[0] && (
-        <img 
-          src={flavorImages[selectedPotions[0].flavor]} 
-          alt={selectedPotions[0].flavor}
-          className="flavor-img"
-        />
+          {/* Base image */}
+          <img src={chewbieHollow} alt="Chewbie Cauldron" className="chewbie-cauldron" />
+
+          {/* Bubbles */}
+          {selectedPotions.length === 2 && (
+            <img
+              src={bubbleImages[selectedPotions[1].flavor]}
+              alt={selectedPotions[1].flavor}
+              className="bubbles-img"
+            />
+          )}
+
+          {/* Flavor text 1 */}
+          {selectedPotions.length > 0 && (
+            <img
+              src={flavorImages[selectedPotions[0].flavor]}
+              alt={selectedPotions[0].flavor}
+              className="flavor-img-1"
+            />
+          )}
+
+          {/* Flavor text 2 */}
+          {selectedPotions.length === 2 && (
+            <img
+              src={flavorImages[selectedPotions[1].flavor]}
+              alt={selectedPotions[1].flavor}
+              className="flavor-img-2"
+            />
+          )}
+
+          {/* Flavor in cauldron */}
+          {selectedPotions.length === 1  && (
+            <img
+              src={cauldronImages[selectedPotions[0].flavor]}
+              alt={selectedPotions[0].flavor}
+              className="cauldron-img"
+            />
+          )}
+
+            {/* Mix Button */}
+          {selectedPotions.length === 2  && (
+            <img
+              className="mix-button"
+              onClick={() => { if (selectedPotions.length >= 2) onMix(); }}
+              src={mixButton}
+              alt="Mix the Mystery"
+            />
+          )}
+        </div>
       )}
-      {selectedPotions[1] && (
-        <img 
-          src={flavorImages[selectedPotions[1].flavor]} 
-          alt={selectedPotions[1].flavor}
-          className="flavor-img"
-        />
-      )}
+
 
       {/* DESKTOP LAYOUT: 5 shelves of 4 potions */}
       {!isMobile && (
@@ -86,56 +131,49 @@ const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) =
 
       {/* MOBILE LAYOUT: horizontal carousel */}
       {isMobile && (
-        <div className="shelves mobile">
-          <img
-            src={leftArrow}
-            alt="Left"
-            className={`arrow left ${!canGoLeft ? "disabled" : ""}`}
-            onClick={canGoLeft ? handleLeft : null}
-          />
+       <div className="shelves mobile">
+  <img
+    src={leftArrow}
+    alt="Left"
+    className={`arrow left ${!canGoLeft ? "disabled" : ""}`}
+    onClick={canGoLeft ? handleLeft : null}
+  />
 
-          <div
-            className="carousel-row"
-            style={{
-              width: `${(potions.length / visibleCount) * 100}%`,
-              transform: `translateX(-${(startIndex / potions.length) * 100}%)`,
-              transition: "transform 0.4s ease"
-            }}
-          >
-            {potions.map(flavor => {
-              const isSelected = selectedPotions.some(p => p.flavor === flavor);
-              const potionSrc = isSelected
-                ? require(`../../assets/Potions/Selected/potion_Glow ${flavor}.png`)
-                : require(`../../assets/Potions/Standard/potion_${flavor}.png`);
+  <div
+    className="carousel-row"
+    style={{
+      width: `${(potions.length / visibleCount) * 100}%`,
+      transform: `translateX(-${(startIndex / potions.length) * 100}%)`,
+      transition: "transform 0.4s ease"
+    }}
+  >
+    {potions.map(flavor => {
+      const isSelected = selectedPotions.some(p => p.flavor === flavor);
+      const potionSrc = isSelected
+        ? require(`../../assets/Potions/Selected/potion_Glow ${flavor}.png`)
+        : require(`../../assets/Potions/Standard/potion_${flavor}.png`);
 
-              return (
-                <img
-                  key={flavor}
-                  src={potionSrc}
-                  alt={flavor}
-                  className={`potion-icon ${isSelected ? "selected" : ""}`}
-                  onClick={() => onSelectPotion({ flavor, color: flavor })}
-                />
-              );
-            })}
-          </div>
+      return (
+        <img
+          key={flavor}
+          src={potionSrc}
+          alt={flavor}
+          className={`potion-icon ${isSelected ? "selected" : ""}`}
+          onClick={() => onSelectPotion({ flavor, color: flavor })}
+        />
+      );
+    })}
+  </div>
 
-          <img
-            src={rightArrow}
-            alt="Right"
-            className={`arrow right ${!canGoRight ? "disabled" : ""}`}
-            onClick={canGoRight ? handleRight : null}
-          />
-        </div>
+  <img
+    src={rightArrow}
+    alt="Right"
+    className={`arrow right ${!canGoRight ? "disabled" : ""}`}
+    onClick={canGoRight ? handleRight : null}
+  />
+</div>
       )}
 
-      {/* Mix Button */}
-      <img
-        className="mix-button"
-        onClick={() => { if (selectedPotions.length >= 2) onMix(); }}
-        src={mixButton}
-        alt="Mix the Mystery"
-      />
     </div>
   );
 };

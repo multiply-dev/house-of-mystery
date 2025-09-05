@@ -6,7 +6,7 @@
   background-position: center;
   display: flex;
   justify-content: center;
-  padding: 2rem 0;
+  align-items: center;
 }
 
 .rules-container {
@@ -41,7 +41,7 @@
   align-self: center;
   cursor: pointer;      
   transition: transform 0.2s ease;
-  width: 12rem;
+  width: 10rem;
 }
 
 .yellow {
@@ -62,7 +62,7 @@
   }
 
   .rules-button{
-    width: 28%;
+    width: 10rem;
   }
 
 }

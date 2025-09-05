@@ -10,6 +10,41 @@
   flex-direction: column;
   gap: 1.5rem;
   color: white;
+  overflow: hidden;
+}
+
+/* === Chewbie and Related Elements === */
+.form-chewbie-wrapper {
+  position: absolute;
+  top: 7%;       /* adjust to position on background */
+  left: 30%;      /* horizontal center */
+  transform: translateX(-50%);
+  width: 32%;     /* controls overall chewbie size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.form-content-container {
+  width: 50%;            /* take half of the screen width */
+  position: absolute;    /* position relative to the screen */
+  top: 50%;              /* vertical center */
+  left: 50%;             /* start at the middle of the screen */
+  transform: translate(0, -50%); /* keep vertical centering */
+  display: flex;         /* for inner content alignment */
+  flex-direction: column;
+  justify-content: flex-end; /* push content to the right within this container */
+  align-items: center;   /* vertical alignment of inner content */
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2.5rem;
+  text-align: center;
 }
 
 .submit-button {
@@ -30,8 +65,32 @@
 }
 
 @media (max-width: 968px) {
+  .form-chewbie-wrapper {
+    display: none;
+  }
+
   .form-screen {
+    width: 100vw;
+    height: 100vh;
     background-image: url("../../assets/base/mobile game form.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: white;
+  } 
+
+  .form-content-container {
+    width: 100%;           /* take half of the screen width */
+    transform: none;
+    position: initial;
+    display: flex;  
+    flex-direction: column;       /* for inner content alignment */
+    justify-content: center; /* push content to the right within this container */
+    align-items: center;   /* vertical alignment of inner content */
   }
 
   .submit-button {
