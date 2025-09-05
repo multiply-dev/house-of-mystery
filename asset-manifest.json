@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/house-of-mystery/static/css/main.b01f9894.css",
-    "main.js": "/house-of-mystery/static/js/main.793179b6.js",
+    "main.css": "/house-of-mystery/static/css/main.3ce744dc.css",
+    "main.js": "/house-of-mystery/static/js/main.4d13fac8.js",
     "static/js/453.c778028a.chunk.js": "/house-of-mystery/static/js/453.c778028a.chunk.js",
     "static/media/desktop background.png": "/house-of-mystery/static/media/desktop background.31aa77a908d7e72add4b.png",
     "static/media/submission.wav": "/house-of-mystery/static/media/submission.dff8939f210d8e1821f7.wav",
-    "static/media/mobile background.png": "/house-of-mystery/static/media/mobile background.1d16c1cf6f443fb6470c.png",
+    "static/media/mobile background.png": "/house-of-mystery/static/media/mobile background.2a095b38eb1fd6a3243d.png",
     "static/media/game background desktop-form drop.png": "/house-of-mystery/static/media/game background desktop-form drop.2cf9669fb66477156d70.png",
     "static/media/glowing chewbie for submit- desktop.png": "/house-of-mystery/static/media/glowing chewbie for submit- desktop.c37ed425de8f13a87a6b.png",
     "static/media/glowing chewbie for submit screen-mobile.png": "/house-of-mystery/static/media/glowing chewbie for submit screen-mobile.f576e9fd1557972afe6e.png",
@@ -53,6 +53,7 @@
     "static/media/mystery game logo.png": "/house-of-mystery/static/media/mystery game logo.48c3808998c5ced80951.png",
     "static/media/good luck.png": "/house-of-mystery/static/media/good luck.37cde32bbd9c45ffaf8f.png",
     "static/media/mobile potion shelves.png": "/house-of-mystery/static/media/mobile potion shelves.8c938da5bed2c8cf6e0b.png",
+    "static/media/back.png": "/house-of-mystery/static/media/back.7846199f4e9b502c2e44.png",
     "static/media/potion_Yuzu Lime.png": "/house-of-mystery/static/media/potion_Yuzu Lime.d255dde47b8ef3cc6be9.png",
     "static/media/potion_Blue Raspberry.png": "/house-of-mystery/static/media/potion_Blue Raspberry.3537a233f27d24c8dfcb.png",
     "static/media/potion_Blueberry.png": "/house-of-mystery/static/media/potion_Blueberry.8ab2151bebc2422a424e.png",
@@ -103,12 +104,12 @@
     "static/media/FlavorNames-Blue Raspberry.png": "/house-of-mystery/static/media/FlavorNames-Blue Raspberry.e098755ca464318f9e5c.png",
     "static/media/FlavorNames-Rainbow Sherbert.png": "/house-of-mystery/static/media/FlavorNames-Rainbow Sherbert.b3b8278cdce1235de8a1.png",
     "index.html": "/house-of-mystery/index.html",
-    "main.b01f9894.css.map": "/house-of-mystery/static/css/main.b01f9894.css.map",
-    "main.793179b6.js.map": "/house-of-mystery/static/js/main.793179b6.js.map",
+    "main.3ce744dc.css.map": "/house-of-mystery/static/css/main.3ce744dc.css.map",
+    "main.4d13fac8.js.map": "/house-of-mystery/static/js/main.4d13fac8.js.map",
     "453.c778028a.chunk.js.map": "/house-of-mystery/static/js/453.c778028a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b01f9894.css",
-    "static/js/main.793179b6.js"
+    "static/css/main.3ce744dc.css",
+    "static/js/main.4d13fac8.js"
   ]
 }
