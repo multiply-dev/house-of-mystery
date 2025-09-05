@@ -19,20 +19,22 @@
 }
 
 .mystery-char {
-  max-width: 40%;
+  max-width: 55%;
   height: auto;
   object-fit: contain;
 }
 
 .mystery-logo {
   max-width: 32vw;
+  margin-left: -100px;
+  margin-bottom: 50px;
 }
 
 .title-button {
   align-self: center;
   cursor: pointer;               /* Makes the cursor a pointer */
   transition: transform 0.2s ease; /* Smooth transition for scaling */
-  width: 15vw;
+  width: 19vw;
 }
 
 .title-button:hover {
@@ -52,6 +54,8 @@
 
   .mystery-logo {
     max-width: 70%;   /* don’t exceed 80% of viewport width */
+    margin-left: 0;
+    margin-bottom: 0;
   }
   .title-button {
     width: 28%;
