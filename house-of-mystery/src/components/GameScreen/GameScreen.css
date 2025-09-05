@@ -78,81 +78,16 @@
   cursor: not-allowed;
 }
 
-/* Mobile layout adjustments */
-@media (max-width: 968px) {
-  .shelves-img {
-    position: absolute;
-    width: 23rem;
-    display: flex;
-    flex-direction: column;
-    top: 0%;
-    justify-self: center;
-  }
-
-  .shelves {
-    display: flex;
-    flex-direction: row; /* horizontal row */
-    justify-content: center; /* center carousel horizontally */
-    align-items: center; /* vertical center within container */
-    gap: 1rem;
-    overflow: hidden; /* hide offscreen elements */
-    position: absolute;
-    top: 0; /* move to top of screen */
-    left: 50%; /* center horizontally */
-    transform: translateX(-50%);
-    width: 35%; /* take 40% of screen width */
-    padding: 1rem 0; /* optional: add some top/bottom padding */
-    z-index: 100; /* ensure it's above other content */
-  }
-
-  .shelf {
-    display: flex;
-    gap: 1rem;
-    flex: 0 0 auto;
-  }
-
-  .carousel-row {
-    display: flex;
-    transition: transform 0.4s ease;
-  }
-
-  .arrow {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    cursor: pointer;
-  }
-
-  .arrow.left {
-    left: 5px;
-  }
-
-  .arrow.right {
-    right: 5px;
-  }
-
-  .arrow.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-  .potion-icon {
-    width: 130px; /* slightly smaller for mobile */
-  }
-}
-
 /* === Chewbie and Related Elements === */
 .chewbie-wrapper {
   position: absolute;
-  top: 7%;       /* adjust to position on background */
   left: 30%;      /* horizontal center */
   transform: translateX(-50%);
-  width: 32%;     /* controls overall chewbie size */
+  width: 35%;     /* controls overall chewbie size */
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: anchor-center;
   z-index: 2;
 }
 
@@ -186,16 +121,16 @@
 .flavor-img-1 {
   position: absolute;
   top: 8%;
-    left: 3%;
-    width: 40%;
+  left: 6%;
+  width: 37%;
   z-index: 4;
 }
 
 .flavor-img-2 {
   position: absolute;
   top: 8%;
-    right: 5%;
-    width: 40%;
+  right: 7%;
+  width: 37%;
   z-index: 4;
 }
 
@@ -208,4 +143,121 @@ top: 71%;
     cursor: pointer;
     width: 27%;
   transition: transform 0.3s ease;
+}
+
+/* Mobile layout adjustments */
+@media (max-width: 868px) {
+  .chewbie-wrapper {
+    align-self: anchor-center;
+    left: 50%;
+    width: 35vw;
+    top: 35%;
+  }
+
+  .shelves {
+    display: none;
+  }
+  .shelves-img {
+    display: none;
+  }
+
+  .shelves-img-mobile {
+    position: absolute;
+    width:95vw;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+  }
+
+  .arrow {
+    width: 10vw;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .shelves-mobile {
+    position: relative;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 25px;
+  }
+
+  .carousel-row {
+    display: flex;
+    justify-content: space-between;
+    width: 67vw;
+  }
+
+  .potion-icon {
+    flex: 1 1 0;
+    max-width: calc(88vw / 3 - 10px); /* 3 potions, with a little spacing */
+    height: auto;
+    cursor: pointer;
+  }
+
+  .potion-icon {
+    animation: fadeInRight 0.5s ease;
+  }
+
+  .potion-icon.slide-left {
+    animation: fadeInLeft 0.5s ease;
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 1;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 1;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .arrow.left {
+    left: 8px;
+  }
+
+  .arrow.right {
+    right: 8px;
+  }
+
+  .arrow.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  
+}
+
+@media (max-width: 620px) {
+  .chewbie-wrapper {
+    align-self: anchor-center;
+    left: 50%;
+    width: 35vw;
+    top: 35%;
+  }
+}
+
+@media (max-width: 520px) {
+  .chewbie-wrapper {
+    align-self: anchor-center;
+    left: 50%;
+    width: 81vw;
+  }
 }

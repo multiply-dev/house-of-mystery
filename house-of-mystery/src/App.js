@@ -4,32 +4,24 @@ import RulesScreen from "./components/RulesScreen/RulesScreen";
 import GameScreen from "./components/GameScreen/GameScreen";
 import FormScreen from "./components/FormScreen/FormScreen";
 import EndScreen from "./components/EndScreen/EndScreen";
-import { potionColors } from "./utils/potionColors"; // adjust path if needed
+import potionSound from "./assets/sound effects/potion.mp3";
+import mixingSound from "./assets/sound effects/mixing.wav";
+import submissionSound from "./assets/sound effects/submission.wav";
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState("title");
   const [selectedPotions, setSelectedPotions] = useState([]);
-  const [cauldronColor, setCauldronColor] = useState(null);
 
   // Switch screen
   const goToScreen = (screen) => {
     setCurrentScreen(screen);
   };
 
-  const parseColor = (color) => {
-    const [r, g, b] = color.match(/\d+/g).map(Number);
-    return [r, g, b];
-  }
-
-  const mixColors = (c1, c2) => {
-    const [r1, g1, b1] = parseColor(c1);
-    const [r2, g2, b2] = parseColor(c2);
-    return `rgb(${Math.round((r1 + r2) / 2)}, ${Math.round(
-      (g1 + g2) / 2
-    )}, ${Math.round((b1 + b2) / 2)})`;
-  }
 
  const handlePotionSelect = (potion) => {
+    const audio = new Audio(potionSound);
+    audio.play();
+
     let newSelections = [...selectedPotions];
 
     if (newSelections.length < 2) {
@@ -41,20 +33,12 @@ function App() {
     }
 
     setSelectedPotions(newSelections);
-
-    if (newSelections.length === 1) {
-      setCauldronColor(potionColors[newSelections[0].flavor]);
-    } else if (newSelections.length === 2) {
-      // Example: blend colors, or use lookup table
-      const color1 = potionColors[newSelections[0].flavor];
-      const color2 = potionColors[newSelections[1].flavor];
-      setCauldronColor(mixColors(color1, color2));
-    }
   };
 
-  
   // Handle form submission
   const handleFormSubmit = () => {
+    const audio = new Audio(submissionSound);
+    audio.play();
     goToScreen("end");
   };
 
@@ -71,9 +55,12 @@ function App() {
       {currentScreen === "game" && (
         <GameScreen
           selectedPotions={selectedPotions}
-          cauldronColor={cauldronColor}
           onSelectPotion={handlePotionSelect}
-          onMix={() => goToScreen("form")}
+          onMix={() => {
+            const audio = new Audio(mixingSound);
+            audio.play();
+            goToScreen("form")}
+          }
         />
       )}
 

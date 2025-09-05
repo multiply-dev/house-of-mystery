@@ -66,3 +66,17 @@
   }
 
 }
+
+@media (max-width: 389px) {
+  .rules-container h1 {
+    font-size: clamp(2rem, 2.6vw, 3rem);
+  }
+
+  .rules-container h2 {
+    font-size: clamp(1.4rem, 2vw, 2.25rem);
+  }
+
+  .rules-container h3 {
+    font-size: clamp(1.1rem, 1vw, 1.75rem);
+  }
+}

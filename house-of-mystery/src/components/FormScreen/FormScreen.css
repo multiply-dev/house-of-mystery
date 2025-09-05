@@ -16,13 +16,14 @@
 /* === Chewbie and Related Elements === */
 .form-chewbie-wrapper {
   position: absolute;
-  top: 7%;       /* adjust to position on background */
   left: 30%;      /* horizontal center */
   transform: translateX(-50%);
-  width: 32%;     /* controls overall chewbie size */
+  width: 35%;     /* controls overall chewbie size */
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: anchor-center;
+
   z-index: 2;
 }
 
@@ -48,13 +49,13 @@
 }
 
 .submit-button {
-  width: 12rem; /* ~192px */
+  width: 12rem;
   cursor: pointer;
   transition: transform 0.3s ease;
-  background-color: transparent; /* remove button bg */
-  border: none;                  /* remove border */
-  padding: 0;                    /* so image fits edge-to-edge */
-  cursor: pointer;
+  background-color: transparent;
+  border: none; 
+  padding: 0; 
+  color: white;
 }
 .submit-button img {
   width: 8rem; 

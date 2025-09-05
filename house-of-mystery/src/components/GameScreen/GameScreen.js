@@ -18,27 +18,37 @@ const potions = [
     "Strawberry", "Watermelon", "Yuzu Lime"
 ];
 
-const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) => {
+const GameScreen = ({ selectedPotions, onSelectPotion, onMix }) => {
   const [startIndex, setStartIndex] = useState(0);
-  const isMobile = window.innerWidth < 968;
-  const visibleCount = 3; // mobile only
+
+  const visiblePotions = potions.slice(startIndex, startIndex + 3);
+
+  const canGoLeft = startIndex > 0;
+  const canGoRight = startIndex + 3 < potions.length;
+
+  const [direction, setDirection] = useState("right");
 
   const handleLeft = () => {
-    setStartIndex(prev => Math.max(prev - 1, 0));
+    if (canGoLeft) {
+      setDirection("left");
+      setStartIndex(prev => prev - 1);
+    }
   };
 
   const handleRight = () => {
-    setStartIndex(prev => Math.min(prev + 1, potions.length - visibleCount));
+    if (canGoRight) {
+      setDirection("right");
+      setStartIndex(prev => prev + 1);
+    }
   };
 
-  const canGoLeft = startIndex > 0;
-  const canGoRight = startIndex < potions.length - visibleCount;
 
   return (
     <div className="game-screen">
       {/* Background */}
       <img src={gameBase} alt="Game Background" className="game-bg" />
-      <img src={isMobile ? shelf : shelves} alt="Shelves" className="shelves-img" />
+      <img src={shelves} alt="Shelves" className="shelves-img" />
+      <img src={shelf} alt="Shelves" className="shelves-img-mobile" />
       
       
       {selectedPotions.length === 0 && (
@@ -104,7 +114,7 @@ const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) =
 
 
       {/* DESKTOP LAYOUT: 5 shelves of 4 potions */}
-      {!isMobile && (
+      {
         <div className="shelves">
           {Array.from({ length: 5 }).map((_, shelfIndex) => (
             <div className="shelf" key={shelfIndex}>
@@ -127,52 +137,45 @@ const GameScreen = ({ selectedPotions, cauldronColor, onSelectPotion, onMix }) =
             </div>
           ))}
         </div>
-      )}
+      }
 
       {/* MOBILE LAYOUT: horizontal carousel */}
-      {isMobile && (
-       <div className="shelves mobile">
-  <img
-    src={leftArrow}
-    alt="Left"
-    className={`arrow left ${!canGoLeft ? "disabled" : ""}`}
-    onClick={canGoLeft ? handleLeft : null}
-  />
+      {
+        <div className="shelves-mobile">
+          <img
+            src={leftArrow}
+            alt="Left"
+            className={`arrow left ${!canGoLeft ? "disabled" : ""}`}
+            onClick={canGoLeft ? handleLeft : null}
+          />
 
-  <div
-    className="carousel-row"
-    style={{
-      width: `${(potions.length / visibleCount) * 100}%`,
-      transform: `translateX(-${(startIndex / potions.length) * 100}%)`,
-      transition: "transform 0.4s ease"
-    }}
-  >
-    {potions.map(flavor => {
-      const isSelected = selectedPotions.some(p => p.flavor === flavor);
-      const potionSrc = isSelected
-        ? require(`../../assets/Potions/Selected/potion_Glow ${flavor}.png`)
-        : require(`../../assets/Potions/Standard/potion_${flavor}.png`);
+          <div className="carousel-row">
+            {visiblePotions.map(flavor => {
+              const isSelected = selectedPotions.some(p => p.flavor === flavor);
+              const potionSrc = isSelected
+                ? require(`../../assets/Potions/Selected/potion_Glow ${flavor}.png`)
+                : require(`../../assets/Potions/Standard/potion_${flavor}.png`);
 
-      return (
-        <img
-          key={flavor}
-          src={potionSrc}
-          alt={flavor}
-          className={`potion-icon ${isSelected ? "selected" : ""}`}
-          onClick={() => onSelectPotion({ flavor, color: flavor })}
-        />
-      );
-    })}
-  </div>
+              return (
+                <img
+                  key={`${flavor}-${startIndex}`}
+                  src={potionSrc}
+                  alt={flavor}
+                  className={`potion-icon ${direction === "left" ? "slide-left" : ""} ${isSelected ? "selected" : ""}`}
+                  onClick={() => onSelectPotion({ flavor, color: flavor })}
+                />
+              );
+            })}
+          </div>
 
-  <img
-    src={rightArrow}
-    alt="Right"
-    className={`arrow right ${!canGoRight ? "disabled" : ""}`}
-    onClick={canGoRight ? handleRight : null}
-  />
-</div>
-      )}
+          <img
+            src={rightArrow}
+            alt="Right"
+            className={`arrow right ${!canGoRight ? "disabled" : ""}`}
+            onClick={canGoRight ? handleRight : null}
+          />
+        </div>
+      }
 
     </div>
   );
