@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/house-of-mystery/static/css/main.170fcd85.css",
+    "main.css": "/house-of-mystery/static/css/main.f34c4c02.css",
     "main.js": "/house-of-mystery/static/js/main.e2ec5014.js",
     "static/js/453.c778028a.chunk.js": "/house-of-mystery/static/js/453.c778028a.chunk.js",
     "static/media/desktop background.png": "/house-of-mystery/static/media/desktop background.31aa77a908d7e72add4b.png",
@@ -102,12 +102,12 @@
     "static/media/FlavorNames-Blue Raspberry.png": "/house-of-mystery/static/media/FlavorNames-Blue Raspberry.e098755ca464318f9e5c.png",
     "static/media/FlavorNames-Rainbow Sherbert.png": "/house-of-mystery/static/media/FlavorNames-Rainbow Sherbert.b3b8278cdce1235de8a1.png",
     "index.html": "/house-of-mystery/index.html",
-    "main.170fcd85.css.map": "/house-of-mystery/static/css/main.170fcd85.css.map",
+    "main.f34c4c02.css.map": "/house-of-mystery/static/css/main.f34c4c02.css.map",
     "main.e2ec5014.js.map": "/house-of-mystery/static/js/main.e2ec5014.js.map",
     "453.c778028a.chunk.js.map": "/house-of-mystery/static/js/453.c778028a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.170fcd85.css",
+    "static/css/main.f34c4c02.css",
     "static/js/main.e2ec5014.js"
   ]
 }
