@@ -37,6 +37,7 @@
   flex-direction: column;
   justify-content: flex-end; /* push content to the right within this container */
   align-items: center;   /* vertical alignment of inner content */
+  gap: 1rem;
 }
 
 .header-text {
@@ -92,6 +93,7 @@
     flex-direction: column;       /* for inner content alignment */
     justify-content: center; /* push content to the right within this container */
     align-items: center;   /* vertical alignment of inner content */
+    gap: 1rem;
   }
 
   .submit-button {
